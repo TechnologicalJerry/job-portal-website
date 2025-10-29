@@ -1,0 +1,59 @@
+{
+  "name": "job-portal-website",
+  "version": "1.0.0",
+  "description": "The Sales Management System",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "gen": "plop",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechnologicalJerry/job-portal-website.git"
+  },
+  "keywords": [
+    "insurance",
+    "management",
+    "system",
+    "Node.js",
+    "Express",
+    "TypeScript",
+    "MongoDB",
+    "REST",
+    "API"
+  ],
+  "author": "technojerry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechnologicalJerry/job-portal-website/issues"
+  },
+  "homepage": "https://github.com/TechnologicalJerry/job-portal-website#readme",
+  "dependencies": {
+    "@typegoose/typegoose": "^12.20.0",
+    "argon2": "^0.44.0",
+    "config": "^4.1.1",
+    "dayjs": "^1.11.18",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "job-portal-website": "file:",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.19.2",
+    "nanoid": "^5.1.6",
+    "nodemailer": "^7.0.10",
+    "pino": "^10.1.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.5",
+    "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/lodash": "^4.17.20",
+    "@types/nodemailer": "^7.0.3",
+    "pino-pretty": "^13.1.2",
+    "plop": "^4.0.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
