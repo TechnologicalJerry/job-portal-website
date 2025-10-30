@@ -1,4 +1,12 @@
-import { object, string, TypeOf, number, array, boolean, enum as zodEnum, date } from "zod";
+import { object, string, TypeOf, number, array, boolean, z } from "zod";
+
+const JobTypeEnum = z.enum(["full-time", "part-time", "contract", "internship", "freelance"], {
+  errorMap: () => ({ message: "Job type is required" }),
+});
+
+const ExperienceLevelEnum = z.enum(["entry-level", "mid-level", "senior", "executive"], {
+  errorMap: () => ({ message: "Experience level is required" }),
+});
 
 export const createJobSchema = object({
   body: object({
@@ -8,12 +16,8 @@ export const createJobSchema = object({
     description: string().min(10, "Description must be at least 10 characters"),
     requirements: array(string()).optional(),
     skills: array(string()).optional(),
-    jobType: zodEnum(["full-time", "part-time", "contract", "internship", "freelance"], {
-      required_error: "Job type is required",
-    }),
-    experienceLevel: zodEnum(["entry-level", "mid-level", "senior", "executive"], {
-      required_error: "Experience level is required",
-    }),
+    jobType: JobTypeEnum,
+    experienceLevel: ExperienceLevelEnum,
     salaryMin: number().positive("Minimum salary must be positive"),
     salaryMax: number().positive("Maximum salary must be positive"),
     salaryCurrency: string().optional(),
@@ -38,8 +42,8 @@ export const updateJobSchema = object({
     description: string().optional(),
     requirements: array(string()).optional(),
     skills: array(string()).optional(),
-    jobType: zodEnum(["full-time", "part-time", "contract", "internship", "freelance"]).optional(),
-    experienceLevel: zodEnum(["entry-level", "mid-level", "senior", "executive"]).optional(),
+    jobType: JobTypeEnum.optional(),
+    experienceLevel: ExperienceLevelEnum.optional(),
     salaryMin: number().optional(),
     salaryMax: number().optional(),
     salaryCurrency: string().optional(),
