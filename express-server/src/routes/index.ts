@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import userRoutes from "./user.routes";
 import authRoutes from "./auth.routes";
+import jobRoutes from "./job.routes";
 
 const router = express.Router();
 
@@ -16,5 +17,8 @@ router.use("/users", userRoutes);
 
 // Use auth routes under "/auth"
 router.use("/auth", authRoutes);
+
+// Use job routes under "/jobs"
+router.use("/jobs", jobRoutes);
 
 export default router;
