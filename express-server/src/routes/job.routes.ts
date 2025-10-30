@@ -22,15 +22,17 @@ const router = express.Router();
 
 // Public routes
 router.get("/", validateResource(getJobsSchema), getJobsHandler);
+
+// Get jobs posted by current user (must be before /:jobId route)
+router.get("/my/jobs", requireUser, getMyJobsHandler);
+
+// Single job routes
 router.get("/:jobId", validateResource(getJobSchema), getJobHandler);
 
 // Protected routes - require authentication
 router.post("/", requireUser, validateResource(createJobSchema), createJobHandler);
 router.put("/:jobId", requireUser, validateResource(updateJobSchema), updateJobHandler);
 router.delete("/:jobId", requireUser, validateResource(deleteJobSchema), deleteJobHandler);
-
-// Get jobs posted by current user
-router.get("/my/jobs", requireUser, getMyJobsHandler);
 
 // Apply to a job
 router.post("/:jobId/apply", requireUser, validateResource(getJobSchema), applyToJobHandler);
