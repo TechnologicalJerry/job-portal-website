@@ -4,7 +4,6 @@ import {
   prop,
   Severity,
   index,
-  DocumentType,
   Ref,
 } from "@typegoose/typegoose";
 import { User } from "./user.model";
