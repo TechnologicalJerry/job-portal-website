@@ -1,12 +1,7 @@
 import { object, string, TypeOf, number, array, boolean, z } from "zod";
 
-const JobTypeEnum = z.enum(["full-time", "part-time", "contract", "internship", "freelance"], {
-  errorMap: () => ({ message: "Job type is required" }),
-});
-
-const ExperienceLevelEnum = z.enum(["entry-level", "mid-level", "senior", "executive"], {
-  errorMap: () => ({ message: "Experience level is required" }),
-});
+const JobTypeEnum = z.enum(["full-time", "part-time", "contract", "internship", "freelance"]);
+const ExperienceLevelEnum = z.enum(["entry-level", "mid-level", "senior", "executive"]);
 
 export const createJobSchema = object({
   body: object({
